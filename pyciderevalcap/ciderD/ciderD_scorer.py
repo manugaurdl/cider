@@ -76,6 +76,7 @@ class CiderScorer(object):
         self.ctest = []
         self.df_mode = df_mode
         self.ref_len = None
+        self.document_frequency = defaultdict(float)
         if self.df_mode != "corpus":
             pkl_file = cPickle.load(open(os.path.join('data', df_mode + '.p'),'rb'), **(dict(encoding='latin1') if six.PY3 else {}))
             self.ref_len = np.log(float(pkl_file['ref_len']))
